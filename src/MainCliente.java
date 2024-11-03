@@ -1,5 +1,6 @@
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.UUID;
 
 public class MainCliente {
     public static void main(String[] args) {
@@ -47,8 +48,9 @@ public class MainCliente {
                     }
                     int contaIdDeposito = Integer.parseInt(args[2]);
                     double valorDeposito = Double.parseDouble(args[3]);
-                    servidor.depositar(contaIdDeposito, valorDeposito);
-                    System.out.println("Depósito de " + valorDeposito + " realizado na conta " + contaIdDeposito);
+                    String transactionId = UUID.randomUUID().toString(); 
+                    servidor.depositar(contaIdDeposito, valorDeposito, transactionId);
+                    System.out.println("Depósito de " + valorDeposito + " realizado na conta " + contaIdDeposito + " com transactionId: " + transactionId);
                     break;
 
                 case "sacar":
@@ -59,7 +61,7 @@ public class MainCliente {
                     int contaIdSaque = Integer.parseInt(args[2]);
                     double valorSaque = Double.parseDouble(args[3]);
                     
-                    if (servidor.sacar(contaIdSaque, valorSaque)) {
+                    if (servidor.sacar(contaIdSaque, valorSaque, UUID.randomUUID().toString())) {
                         System.out.println("Saque de " + valorSaque + " realizado da conta " + contaIdSaque);
                     } else {
                         System.out.println("Erro: Saque de " + valorSaque + " nao foi realizado na conta " + contaIdSaque);
