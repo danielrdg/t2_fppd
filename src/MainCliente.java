@@ -28,7 +28,7 @@ public class MainCliente {
                     }
                     String titular = args[2];
                     int contaId = servidor.criarConta(titular);
-                    System.out.println("Conta criada com ID: " + contaId);
+                    System.out.println("Conta criada com ID: " + contaId + " para o usuario " + titular);
                     break;
 
                 case "consultarSaldo":
@@ -50,7 +50,7 @@ public class MainCliente {
                     double valorDeposito = Double.parseDouble(args[3]);
                     String transactionId = UUID.randomUUID().toString(); 
                     servidor.depositar(contaIdDeposito, valorDeposito, transactionId);
-                    System.out.println("Depósito de " + valorDeposito + " realizado na conta " + contaIdDeposito + " com transactionId: " + transactionId);
+                    System.out.println("Deposito de " + valorDeposito + " realizado na conta " + contaIdDeposito + " com transactionId: " + transactionId);
                     break;
 
                 case "sacar":
