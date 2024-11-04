@@ -19,6 +19,7 @@ public class MainCliente {
             String comando = args[1];
             Registry registry = LocateRegistry.getRegistry(servidorIp, 1099);
             ServidorInterface servidor = (ServidorInterface) registry.lookup("Banco");
+            System.out.println("Conectando ao servidor RMI no IP: " + servidorIp);
 
             switch (comando) {
                 case "abrirConta":
