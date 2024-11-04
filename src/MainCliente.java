@@ -26,7 +26,7 @@ public class MainCliente {
                     }
                     String titular = args[2];
                     int contaId = servidor.criarConta(titular);
-                    System.out.println("Conta criada com ID: " + contaId + " para o usuario " + titular);
+                    System.out.println("Conta criada com ID " + contaId + " para o usuario " + titular);
                     break;
 
                 case "consultarSaldo":

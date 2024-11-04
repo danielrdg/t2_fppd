@@ -14,7 +14,7 @@ public class MainServidor {
         }
 
         try {
-            System.setProperty("java.rmi.server.hostname", "192.168.15.12");
+            System.setProperty("java.rmi.server.hostname", "localhost");
             Naming.rebind("Banco", new Servidor());
             System.out.println("MainServidor is ready.");
         } catch (RemoteException e) {
