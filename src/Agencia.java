@@ -10,7 +10,7 @@ public class Agencia implements AgenciaInterface {
 
     public void abrirConta(String titular) throws RemoteException {
         int contaId = servidor.criarConta(titular);
-        System.out.println("Conta aberta com ID: " + contaId + " para o usuário " + titular);
+        System.out.println("Conta aberta com ID: " + contaId + " para o usuario " + titular);
     }
 
     public void fecharConta(int contaId) throws RemoteException {
@@ -21,7 +21,7 @@ public class Agencia implements AgenciaInterface {
     public void depositar(int contaId, double valor) throws RemoteException {
         String transactionId = UUID.randomUUID().toString(); 
         servidor.depositar(contaId, valor, transactionId);
-        System.out.println("Depósito de " + valor + " na conta " + contaId + " com transactionId: " + transactionId);
+        System.out.println("Deposito de " + valor + " na conta " + contaId + " com transactionId: " + transactionId);
     }
 
     public void sacar(int contaId, double valor) throws RemoteException {
@@ -30,7 +30,7 @@ public class Agencia implements AgenciaInterface {
         if (servidor.sacar(contaId, valor, transactionId)) {
             System.out.println("Saque de " + valor + " da conta " + contaId + " com transactionId: " + transactionId);
         } else {
-            System.out.println("Erro: Saque de " + valor + " não foi realizado na conta " + contaId);
+            System.out.println("Erro: Saque de " + valor + " nao foi realizado na conta " + contaId);
         }
     }
 
