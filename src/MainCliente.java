@@ -1,3 +1,4 @@
+import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.UUID;
@@ -17,9 +18,8 @@ public class MainCliente {
         try {
             String servidorIp = args[0];
             String comando = args[1];
-            Registry registry = LocateRegistry.getRegistry(servidorIp, 1099);
-            ServidorInterface servidor = (ServidorInterface) registry.lookup("Banco");
-            System.out.println("Conectando ao servidor RMI no IP: " + servidorIp);
+            ServidorInterface servidor = (ServidorInterface) Naming.lookup("//" + servidorIp + ":1099/Banco");
+         
 
             switch (comando) {
                 case "abrirConta":
