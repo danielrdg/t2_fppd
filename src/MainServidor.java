@@ -5,7 +5,7 @@ public class MainServidor {
     public static void main(String[] args) {
         try {
             // Define o IP para o servidor RMI
-            System.setProperty("java.rmi.server.hostname", "192.168.15.4");
+            System.setProperty("java.rmi.server.hostname", "0.0.0.0");
 
             // Cria o registry na porta 1099 (ou usa o existente)
             Registry registry = LocateRegistry.createRegistry(1099);
