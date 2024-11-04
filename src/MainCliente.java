@@ -1,6 +1,4 @@
 import java.rmi.Naming;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.util.UUID;
 
 public class MainCliente {
@@ -18,8 +16,7 @@ public class MainCliente {
         try {
             String servidorIp = args[0];
             String comando = args[1];
-            ServidorInterface servidor = (ServidorInterface) Naming.lookup("//" + servidorIp + ":1099/Banco");
-         
+            ServidorInterface servidor = (ServidorInterface) Naming.lookup("//"+servidorIp+"/Banco");
 
             switch (comando) {
                 case "abrirConta":
